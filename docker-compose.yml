@@ -1,7 +1,7 @@
 services:
   hadoop:
-    image: hadoop-cluster  # Nome da imagem
-    container_name: hadoop-container
+    image: hadoop-hive-cluster  # Nome da imagem
+    container_name: hadoop-hive-container
     build: .
     restart: always  # Reinicia automaticamente se o contêiner falhar
     environment:
