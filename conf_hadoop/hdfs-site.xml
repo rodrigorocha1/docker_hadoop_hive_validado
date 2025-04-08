@@ -21,5 +21,9 @@
          <name>dfs.replication</name>
          <value>1</value>
      </property>
+    <property>
+      <name>dfs.datanode.hostname</name>
+      <value>172.25.0.10</value> <!-- ou o IP externo do DataNode -->
+    </property>
 </configuration>
 
