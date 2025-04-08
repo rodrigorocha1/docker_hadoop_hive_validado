@@ -53,7 +53,7 @@ RUN tar -xvzf apache-hive-4.0.1-bin.tar.gz -C /apache && \
 
 # RUN sed -i 's/sudo //g' ${HADOOP_HOME}/libexec/hadoop-functions.sh
 
-RUN mkdir -p ${HADOOP_HOME}/data/dfs/namespace_logs
+RUN mkdir -p ${HADOOP_HOME}/data/dfs/namespace
 RUN mkdir -p ${HADOOP_HOME}/data/dfs/data
 
 

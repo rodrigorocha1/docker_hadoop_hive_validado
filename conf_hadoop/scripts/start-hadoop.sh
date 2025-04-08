@@ -14,6 +14,16 @@ echo "Iniciando SSH"
 # Inicia o SSH
 service ssh start
 
+echo "Iniciando Hadoop"
+# Inicia o Hadoop
+$HADOOP_HOME/sbin/start-all.sh
+
+echo "criando pastas para hive"
+hadoop fs -mkdir /tmp
+hadoop fs -mkdir -p /user/hive/warehouse
+hadoop fs -chmod g+w /tmp
+hadoop fs -chmod g+w /user/hive/warehouse
+
 echo "Iniciando MySql"
 # Inicia o MySQL
 service mysql start
@@ -25,10 +35,6 @@ echo "Executa a configuração inicial do MySQL para o Hive"
 echo "Iniciando metastore HIVE"
 # Inicializa o metastore do Hive (se ainda não inicializado)
 schematool -dbType mysql -initSchema --verbose
-
-echo "Iniciando Hadoop"
-# Inicia o Hadoop
-$HADOOP_HOME/sbin/start-all.sh
 
 echo "Iniciando Metastore e Hiveserver2"
 # Inicia o Hive Metastore e HiveServer2
