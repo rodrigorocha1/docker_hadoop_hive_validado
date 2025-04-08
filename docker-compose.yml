@@ -1,0 +1,24 @@
+services:
+  hadoop:
+    image: hadoop-cluster  # Nome da imagem
+    container_name: hadoop-container
+    build: .
+    restart: always  # Reinicia automaticamente se o contêiner falhar
+    environment:
+      - TZ=America/Sao_Paulo  # Fuso horário de Brasília
+    volumes:
+      - ./hadoop_data:/hadoop_data
+    networks:
+      hadoop_network:
+        ipv4_address: 172.25.0.10  # IP fixo desejado
+
+volumes:
+  hadoop_data:
+
+networks:
+  hadoop_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.25.0.0/16
+          gateway: 172.25.0.1
